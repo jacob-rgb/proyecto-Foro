@@ -681,7 +681,7 @@ class OnepostresolverService {
     */
     resolve(route) {
         const userId = route.params['id'];
-        const url = `http://localhost:3800/api/post/${userId}`;
+        const url = `https://foro-app-jr.herokuapp.com/api/post/${userId}`;
         return this.http.get(url);
     }
 }
@@ -1540,7 +1540,7 @@ class UserNameValidatorService {
     */
     validate(control) {
         const username = control.value;
-        const path = 'http://localhost:3800/api/verificausername/' + username;
+        const path = 'https://foro-app-jr.herokuapp.com/api/verificausername/' + username;
         return this.http.get(path).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(resp => {
             return (resp.existe) ? { usernameTomado: true } : null;
         }));
@@ -1789,91 +1789,91 @@ class PostsServiceService {
     *  Devuelve un observable que contiene todos los posts de la DB;
     */
     getPosts() {
-        return this.http.get('http://localhost:3800/api/posts');
+        return this.http.get('https://foro-app-jr.herokuapp.com/api/posts');
     }
     /* Función encargada de llamar al endpoint para obtener todos los posts coincidentes con la categoría que se pasa como param ;
     *  @param category: string con el valor de la categoria a buscar;
     *  Devuelve un observable con los posts coincidentes ;
     */
     getPostsbyCategory(category) {
-        return this.http.get(`http://localhost:3800/api/postscat/${category}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/postscat/${category}`);
     }
     /* Función encargada de llamar al endpoint para obtener todos los posts que incluyan en su titulo el parámetro que se le pasa a la función;
     *  @param termino: string con el valor de la palabra a buscar;
     *  Devuelve un observable con los posts coincidentes ;
     */
     getPostsbyWord(termino) {
-        return this.http.get(`http://localhost:3800/api/postsword/${termino}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/postsword/${termino}`);
     }
     /* Función encargada de llamar al endpoint para obtener todos los posts coincidentes con el userId que se pasa como param ;
     *  @param id: string con el valor del user.Id que se quiere buscar;
     * Devuelve un observable con los posts coincidentes ;
     */
     getPostsbyUserId(id) {
-        return this.http.get(`http://localhost:3800/api/postsuserid/${id}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((resp) => resp.posts));
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/postsuserid/${id}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((resp) => resp.posts));
     }
     /* Función encargada de llamar al endpoint para borrar el post coincidente con el id que se pasa como param;
     *  @param id: string con el valor del id del post que se quiere borrar;
     * Devuelve un observable con el post borrado ;
     */
     deletePost(id) {
-        return this.http.delete(`http://localhost:3800/api/post/${id}`);
+        return this.http.delete(`https://foro-app-jr.herokuapp.com/api/post/${id}`);
     }
     /* Función encargada de llamar al endpoint para obtener todos los comentarios coincidentes con el postId que se pasa como param ;
     *  @param id: string con el valor del postId a buscar;
     *  Devuelve un observable con los comentarios coincidentes;
     */
     getComments(id) {
-        return this.http.get(`http://localhost:3800/api/comments/${id}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/comments/${id}`);
     }
     /* Función encargada de llamar al endpoint para borrar el comentario coincidente con el id que se pasa como param;
     *  @param id: string con el valor del id del comentario que se quiere borrar;
     * Devuelve un observable con el comentario borrado ;
     */
     deleteComment(id) {
-        return this.http.delete(`http://localhost:3800/api/comments/${id}`);
+        return this.http.delete(`https://foro-app-jr.herokuapp.com/api/comments/${id}`);
     }
     /* Función encargada de llamar al endpoint para sumar +1 a las vistas del post que coincida con el id que se pasa como param;
     *  @param id: string con el valor del id del post al que se le quiere sumar una vista;
     * Devuelve un observable con el post al que se le ha sumado la vista;
     */
     addView(id) {
-        return this.http.get(`http://localhost:3800/api/vista/${id}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/vista/${id}`);
     }
     /* Función encargada de llamar al endpoint para sumar +1 a las respuestas del post que coincida con el id que se pasa como param;
     *  @param id: string con el valor del id del post al que se le quiere sumar una respuesta;
     * Devuelve un observable con el post al que se le ha sumado la respuesta;
     */
     addResp(id) {
-        return this.http.get(`http://localhost:3800/api/resp/${id}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/resp/${id}`);
     }
     /* Función encargada de llamar al endpoint para sumar +1 a los likes del post que coincida con el id que se pasa como param;
     *  @param id: string con el valor del id del post al que se le quiere sumar un like;
     * Devuelve un observable con el post al que se le ha sumado el like;
     */
     addLikePost(id) {
-        return this.http.get(`http://localhost:3800/api/likeP/${id}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/likeP/${id}`);
     }
     /* Función encargada de llamar al endpoint para sumar +1 a los likes del comentario que coincida con el id que se pasa como param;
     *  @param id: string con el valor del id del comentario al que se le quiere sumar un like;
     * Devuelve un observable con el comentario al que se le ha sumado el like;
     */
     addlikeComment(id) {
-        return this.http.get(`http://localhost:3800/api/likeC/${id}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/likeC/${id}`);
     }
     /* Función encargada de llamar al endpoint para sumar +1 a los dislikes del post que coincida con el id que se pasa como param;
     *  @param id: string con el valor del id del post al que se le quiere sumar un dislike;
     * Devuelve un observable con el post al que se le ha sumado el dislike;
     */
     addDislikePost(id) {
-        return this.http.get(`http://localhost:3800/api/dislikeP/${id}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/dislikeP/${id}`);
     }
     /* Función encargada de llamar al endpoint para sumar +1 a los dislikes del comentario que coincida con el id que se pasa como param;
     *  @param id: string con el valor del id del comentario al que se le quiere sumar un dislike;
     * Devuelve un observable con el comentario al que se le ha sumado el dislike;
     */
     addDislikeComment(id) {
-        return this.http.get(`http://localhost:3800/api/dislikeC/${id}`);
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/dislikeC/${id}`);
     }
     /* Función encargada de llamar al endpoint para crear nuevo post en la DB con la información que se pasa como parámetro;
     *  @param post: objeto que contiene la información del post a crear;
@@ -1882,7 +1882,7 @@ class PostsServiceService {
     savePost(post) {
         let params = JSON.stringify(post);
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-type', 'application/json');
-        let url = 'http://localhost:3800/api/save-post';
+        let url = 'https://foro-app-jr.herokuapp.com/api/save-post';
         return this.http.post(url, params, { headers: headers });
     }
     /* Función encargada de llamar al endpoint para crear nuevo comentario en la DB con la información que se pasa como parámetro;
@@ -1892,7 +1892,7 @@ class PostsServiceService {
     saveComment(comment) {
         let params = JSON.stringify(comment);
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-type', 'application/json');
-        let url = 'http://localhost:3800/api/save-comment';
+        let url = 'https://foro-app-jr.herokuapp.com/api/save-comment';
         return this.http.post(url, params, { headers: headers });
     }
 }
@@ -3095,7 +3095,7 @@ class PostResolverService {
     * Devuelve un observable con todos los posts
     */
     resolve(route) {
-        const url = `http://localhost:3800/api/posts`;
+        const url = `https://foro-app-jr.herokuapp.com/api/posts`;
         return this.http.get(url);
     }
 }
@@ -3144,7 +3144,7 @@ class AuthService {
     *  Devuelve un observable que contiene la info no sensible del usuario creado
     */
     newUser(usuario) {
-        const url = `http://localhost:3800/api/register`;
+        const url = `https://foro-app-jr.herokuapp.com/api/register`;
         return this._http.post(url, usuario);
     }
     /* Función encargada de llamar al endpoint para loguear un usuario existente en la DB con la información obtenida por parámetro
@@ -3152,7 +3152,7 @@ class AuthService {
     *  Devuelve un observable que contiene la info no sensible del usuario logueado
     */
     login(userData) {
-        const url = `http://localhost:3800/api/login`;
+        const url = `https://foro-app-jr.herokuapp.com/api/login`;
         return this._http.post(url, userData);
     }
     /* Función encargada de llamar al endpoint para crear editar un usuario existenete en la DB  con la información obtenida por parámetro
@@ -3161,7 +3161,7 @@ class AuthService {
     *  Devuelve un observable que contiene la info no sensible del usuario editado
     */
     editUser(changes, id) {
-        const url = `http://localhost:3800/api/usuarios/${id}`;
+        const url = `https://foro-app-jr.herokuapp.com/api/usuarios/${id}`;
         return this._http.put(url, changes);
     }
     /* Función encargada de llamar al endpoint para validar una cuenta mediante el "x-token" de los headers
@@ -3169,7 +3169,7 @@ class AuthService {
     *  Devuelve un observable que contiene un booleano dependiendo de si la verificacion es correcta o no
     */
     validarcuenta() {
-        const url = `http://localhost:3800/api/validarcuenta`;
+        const url = `https://foro-app-jr.herokuapp.com/api/validarcuenta`;
         return this._http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((resp) => resp.verificado));
     }
     /* Función encargada de llamar al endpoint para borrar usuario con el id obtenido por parámetro
@@ -3179,7 +3179,7 @@ class AuthService {
     *  Devuelve un observable que contiene la info no sensible del usuario borrado
     */
     deleteUser(usuario, id, password) {
-        const url = `http://localhost:3800/api/usuarios/${usuario}/${id}`;
+        const url = `https://foro-app-jr.herokuapp.com/api/usuarios/${usuario}/${id}`;
         return this._http.post(url, password);
     }
 }
@@ -3523,7 +3523,7 @@ class CommentsResolverService {
     */
     resolve(route) {
         const id = route.params.id;
-        const url = `http://localhost:3800/api/comments/${id}`;
+        const url = `https://foro-app-jr.herokuapp.com/api/comments/${id}`;
         return this.http.get(url);
     }
 }
@@ -3628,7 +3628,7 @@ class EmailValidatorService {
     */
     validate(control) {
         const email = control.value;
-        const path = 'http://localhost:3800/api/verificaemail/' + email;
+        const path = 'https://foro-app-jr.herokuapp.com/api/verificaemail/' + email;
         return this.http.get(path).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(resp => {
             return (resp.existe) ? { emailTomado: true } : null;
         }));
