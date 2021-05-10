@@ -8,6 +8,10 @@
     "nodemon": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "12.19.0",
+    "npm": "6.14.8"
+  },
   "author": "Jacobo Ramírez",
   "license": "ISC",
   "dependencies": {
