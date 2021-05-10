@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: 'https://foro-app-jr.herokuapp.com/',
   optionsSuccessStatus: 200
 }
 
