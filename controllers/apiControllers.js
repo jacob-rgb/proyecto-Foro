@@ -171,7 +171,7 @@ const controller = {
             if(!post) return res.status(404).send('No hay Proyectos para mostrar');
             
             userModel.findByIdAndUpdate(post.userId, { $push: {"likes.likes": postId}});
-            return res.status(200).send({post: post})
+            return res.status(200).send({post: post});
         })
     },
 
