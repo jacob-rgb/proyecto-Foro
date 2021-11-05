@@ -4,6 +4,7 @@ var Post = require('../models/PostModel');
 var fs = require('fs');
 var path = require('path');
 const commentModel = require('../models/commentModel');
+const userModel = require('../models/auth.dao');
 const PostModel = require('../models/PostModel');
 
 
@@ -168,7 +169,8 @@ const controller = {
         Post.findByIdAndUpdate( postId, {$inc: { likes: 1 }},{ timestamps: false } ).exec((err, post) => {
             if(err) return res.status(500).send('Error al devolver los datos');
             if(!post) return res.status(404).send('No hay Proyectos para mostrar');
-
+            
+            userModel.findByIdAndUpdate(post.id, { $push: {"likes.likes": postId}});
             return res.status(200).send({post: post})
         })
     },
