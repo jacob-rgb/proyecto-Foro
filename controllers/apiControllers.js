@@ -166,7 +166,7 @@ const controller = {
 
     sumarLikePost: async (req,res,next) => {
         const postId = req.params.id;
-        Post.findByIdAndUpdate( postId, {$inc: { likes: 1 }},{ timestamps: false } ).exec((err, post) => {
+        Post.findByIdAndUpdate( postId, {$inc: { likes: 1 }},{ timestamps: false } ).exec(async(err, post) => {
             if(err) return res.status(500).send('Error al devolver los datos');
             if(!post) return res.status(404).send('No hay Proyectos para mostrar');
             console.log('hola');
