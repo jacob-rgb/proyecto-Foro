@@ -172,7 +172,7 @@ const controller = {
             if(err) return res.status(500).send('Error al devolver los datos');
             if(!post) return res.status(404).send('No hay Proyectos para mostrar');
          
-            await userModel.findOneAndUpdate({id: post.userId}, { $push : {likes: postId}});
+            await userModel.findByIdAndUpdate(userId, { $push : {likes: postId}});
             return res.status(200).send({post: post});
         })
     },
