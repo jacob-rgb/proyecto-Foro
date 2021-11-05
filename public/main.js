@@ -1204,7 +1204,7 @@ class PostPageComponent {
     }
     // Función encargada de sumar un like a el post en la DB 
     sumLike() {
-        this.apiS.addLikePost(this.defPost._id).subscribe(() => {
+        this.apiS.addLikePost(this.defPost._id, this.userI.id).subscribe(() => {
         });
     }
     // Función encargada de sumar un dislike a el post en la DB 
@@ -1874,8 +1874,8 @@ class PostsServiceService {
     *  @param id: string con el valor del id del post al que se le quiere sumar un like;
     * Devuelve un observable con el post al que se le ha sumado el like;
     */
-    addLikePost(id) {
-        return this.http.get(`https://foro-app-jr.herokuapp.com/api/likeP/${id}`);
+    addLikePost(id, userId) {
+        return this.http.get(`https://foro-app-jr.herokuapp.com/api/likeP/${id}/${userId}`);
     }
     /* Función encargada de llamar al endpoint para sumar +1 a los likes del comentario que coincida con el id que se pasa como param;
     *  @param id: string con el valor del id del comentario al que se le quiere sumar un like;
