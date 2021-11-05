@@ -10958,6 +10958,9 @@ pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
 body {
   background-image: url('imagenFondoOpaco2.jpg');
   height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 .container-fluid {
   padding: 0;
@@ -10992,6 +10995,11 @@ input, textarea, select {
 }
 .btn-group {
   margin: 0 1px;
+}
+markdown img {
+  max-width: 95% !important;
+  margin: 0 auto;
+  object-fit: cover;
 }
 @keyframes mostrarizquierda {
   0% {
