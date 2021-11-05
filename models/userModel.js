@@ -37,6 +37,11 @@ const userSchema =  schema({
     type: String,
     required: true,
     trim: true
+  },
+  likes: {
+    type: Object,
+    required: true,
+    trim: true
   }
 }, {
     timestamps: true

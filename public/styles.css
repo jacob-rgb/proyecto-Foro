@@ -10980,6 +10980,19 @@ input, textarea, select {
   overflow-y: scroll;
   z-index: 99999;
 }
+.md-editor.active {
+  border-color: var(--primary) !important;
+  box-shadow: 2px 2px 3px var(--primary), -2px -2px 3px var(--primary);
+}
+.md-editor > textarea {
+  border-color: var(--primary) !important;
+  box-shadow: 2px 2px 3px var(--primary), -2px -2px 3px var(--primary);
+  padding: 10px 15px !important;
+  background-color: #fff;
+}
+.btn-group {
+  margin: 0 1px;
+}
 @keyframes mostrarizquierda {
   0% {
     transform: translateX(600px);

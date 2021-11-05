@@ -21,7 +21,8 @@ const controller = {
             email: req.body.email,
             friends: req.body.friends,
             imgprofile: req.body.imgprofile,
-            password: bcrypt.hashSync(req.body.password, 12,)
+            password: bcrypt.hashSync(req.body.password, 12,),
+            likes: {likes:[], dislikes:[]}
           }
 
           userModel.create(newUser, (err, user) => {
@@ -37,6 +38,7 @@ const controller = {
               surname: user.surname,
               username: user.username,
               friends: user.friends,
+              likes: user.likes,
               imgprofile: user.imgprofile,
               email: user.email,
               accessToken: accessToken,
@@ -76,6 +78,7 @@ const controller = {
                     imgprofile: user.imgprofile,
                     email: user.email,
                     friends: user.friends,
+                    likes: user.likes,
                     accessToken: accessToken,
                     expiresIn: expiresIn,
                     id: user._id
@@ -112,7 +115,8 @@ const controller = {
         imgprofile: usuario.imgprofile,
         email: usuario.email,
         friends: usuario.friends,
-        id: usuario._id
+        id: usuario._id,
+        likes: usuario.likes
     }
       
       return res.status(200).send({
