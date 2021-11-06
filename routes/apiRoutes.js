@@ -22,7 +22,7 @@ router.delete('/post/:id', apiController.deletePost);
 router.get('/resp/:id', apiController.sumarResp);
 router.get('/vista/:id', apiController.sumarVista);
 router.get('/likeP/:id/:userId', apiController.sumarLikePost);
-router.get('/dislikeP/:id', apiController.sumarDisLikePost);
+router.get('/dislikeP/:id/:userId', apiController.sumarDisLikePost);
 router.post('/save-post',[
     validarJWT
 ], apiController.savePost);
