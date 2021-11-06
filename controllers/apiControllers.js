@@ -119,13 +119,11 @@ const controller = {
     deleteComment: async (req, res) => {
         const {id} = req.params;
 
-        commentModel.findByIdAndDelete(id,undefined, async (err, resp) => {
+        commentModel.findByIdAndDelete(id, async (err, resp) => {
             if(err) res.status(500).send({msg: 'No se ha podido borrar el comentario'})
-            console.log(resp);
-            const idDePost = resp.postId;
 
-            const post = await PostModel.findByIdAndUpdate(idDePost, {$inc: { numresp: -1 }},{ timestamps: false })
-            console.log(post);
+            const idDePost = resp.postId;
+            await PostModel.findByIdAndUpdate(idDePost, {$inc: { numresp: -1 }},{ timestamps: false })
             res.status(200).send({resp});
         });
 
