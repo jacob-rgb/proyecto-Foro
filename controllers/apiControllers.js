@@ -104,7 +104,7 @@ const controller = {
 
     getComments: async (req,res,next) => {
         const postId = req.params.id;
-        commentModel.find({postId: postId}).sort('+creation-date').exec((err, commentsList) => {
+        commentModel.find({postId: postId}).sort('+createdAt').exec((err, commentsList) => {
             if(err) return res.status(500).send('Error al devolver los datos');
             if(!commentsList) return res.status(404).send('No hay Proyectos para mostrar');
 
