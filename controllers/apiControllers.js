@@ -174,16 +174,16 @@ const controller = {
             if(err) return res.status(500).send('Error al devolver los datos');
             if(!post) return res.status(404).send('No hay Proyectos para mostrar');
             
-            await userModel.findByIdAndUpdate(userId, { $pull : {likes: postId}});
-            return res.status(200).send({post: post});
+            const userUpdated = await userModel.findByIdAndUpdate(userId, { $pull : {likes: postId}}, {new: true});
+            return res.status(200).send({post: post, user: userUpdated });
         });
         } else {
           Post.findByIdAndUpdate( postId, {$inc: { likes: 1 }},{ timestamps: false } ).exec(async(err, post) => {
               if(err) return res.status(500).send('Error al devolver los datos');
               if(!post) return res.status(404).send('No hay Proyectos para mostrar');
               
-              await userModel.findByIdAndUpdate(userId, { $push : {likes: postId}});
-              return res.status(200).send({post: post});
+              const userUpdated = await userModel.findByIdAndUpdate(userId, { $push : {likes: postId}});
+              return res.status(200).send({post: post, user:userUpdated});
           })
         }
 
