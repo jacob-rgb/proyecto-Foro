@@ -1204,7 +1204,8 @@ class PostPageComponent {
     }
     // Función encargada de sumar un like a el post en la DB 
     sumLike() {
-        this.apiS.addLikePost(this.defPost._id, this.userI.id).subscribe(() => {
+        this.apiS.addLikePost(this.defPost._id, this.userI.id).subscribe((data) => {
+            console.log(data);
         });
     }
     // Función encargada de sumar un dislike a el post en la DB 

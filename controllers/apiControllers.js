@@ -167,10 +167,10 @@ const controller = {
     sumarLikePost: async (req,res,next) => {
         const postId = req.params.id;
         const userId = req.params.userId;
-        const post = await Post.findById( postId );
         const user = await userModel.findById( userId );
-
-        if(user.likes.likes.includes(postId)) {
+        res.status(200).send({user: user});
+      
+        if(user.likes.includes(postId)) {
           Post.findByIdAndUpdate( postId, {$inc: { likes: 1 }},{ timestamps: false } ).exec(async(err, post) => {
             if(err) return res.status(500).send('Error al devolver los datos');
             if(!post) return res.status(404).send('No hay Proyectos para mostrar');
