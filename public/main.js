@@ -1023,6 +1023,7 @@ function PostPageComponent_div_0_div_47_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
+const _c2 = function (a0) { return { "marked": a0 }; };
 function PostPageComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10, 11);
@@ -1145,7 +1146,7 @@ function PostPageComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.defPost.categoria);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx_r0.tokenValid)("ngClass", ctx_r0.likesClass ? "marked" : "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx_r0.tokenValid)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](28, _c2, ctx_r0.likesClass === true));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.defPost.likes);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
@@ -1191,12 +1192,12 @@ class PostPageComponent {
             this.defPost = response.data.post;
         });
         window.scrollTo(0, 0);
+        this.likesClass = this.mostrarLikes();
     }
     ngAfterViewInit() {
         this.mostrarcontent();
         this.apiS.addView(this.defPost._id).subscribe((data) => {
         });
-        this.likesClass = this.mostrarLikes();
     }
     // Función que se encarga de mostrar el contenido animado (deslizandose hacia arriba)
     mostrarcontent() {
@@ -1246,7 +1247,7 @@ PostPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.content = _t.first);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.prueba = _t.first);
     } }, decls: 15, vars: 1, consts: [["class", "container", 4, "ngIf"], ["id", "modalPost", "role", "dialog", 1, "modal", "fade"], [1, "modal-dialog"], [1, "modal-content"], [1, "modal-header"], ["type", "button", "data-dismiss", "modal", 1, "close"], [1, "modal-body"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn"], ["type", "button", "data-dismiss", "modal", 1, "btn", 3, "click"], [1, "container"], ["container", ""], [1, "row", "p-3"], [1, "col"], [1, "", 3, "click"], [1, "grey"], [1, "container", "noborder"], [1, "row"], ["id", "colLike", 1, "col-md-1"], [1, "m-3", 3, "click"], ["id", "like", 3, "disabled", "ngClass"], [1, "far", "fa-thumbs-up", "fa-2x"], ["id", "dislike", 3, "disabled"], [1, "far", "fa-thumbs-down", "fa-2x"], [1, "col-md-11"], ["prueba", ""], [3, "data"], ["class", "col-lg-4", 4, "ngIf"], [1, "col-lg-4"], [1, "postInfo"], ["src", "../../../../assets/imgUserprueba.png", "alt", "", "width", "30", "height", "30"], [1, "p-1"], [3, "postId"], ["data-toggle", "modal", "data-target", "#modalPost", 1, "btn", "mb-2"]], template: function PostPageComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, PostPageComponent_div_0_Template, 69, 28, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, PostPageComponent_div_0_Template, 69, 30, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
