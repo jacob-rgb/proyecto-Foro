@@ -10994,7 +10994,7 @@ input, textarea, select {
   background-color: #fff;
 }
 .btn-group {
-  margin: 0 1px;
+  margin: 1px;
 }
 markdown img {
   max-width: 95% !important;
