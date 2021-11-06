@@ -39,7 +39,12 @@ const userSchema =  schema({
     trim: true
   },
   likes: {
-    type: Object,
+    type: Array,
+    required: true,
+    trim: true
+  },
+  dislikes: {
+    type: Array,
     required: true,
     trim: true
   }
