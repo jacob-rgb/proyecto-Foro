@@ -1189,8 +1189,8 @@ class PostPageComponent {
     ngOnInit() {
         this.route.data.subscribe(response => {
             this.defPost = response.data.post;
+            this.likesClass = this.mostrarLikes();
         });
-        this.likesClass = this.mostrarLikes();
         window.scrollTo(0, 0);
     }
     ngAfterViewInit() {
