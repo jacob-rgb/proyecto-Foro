@@ -18,7 +18,7 @@ router.get('/post/:id', apiController.getPostbyId);
 router.get('/postscat/:cat', apiController.getPostbyCategory);
 router.get('/postsword/:word', apiController.getPostbyWord);
 router.get('/postsuserid/:id', apiController.getPostsByUserId);
-router.delete('/post/:id', apiController.deletePost);
+router.delete('/post/:id', [validarJWT], apiController.deletePost);
 router.get('/resp/:id', apiController.sumarResp);
 router.get('/vista/:id', apiController.sumarVista);
 router.get('/likeP/:id/:userId', apiController.sumarLikePost);

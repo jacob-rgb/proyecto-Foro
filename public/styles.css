@@ -11001,6 +11001,9 @@ markdown img {
   margin: 0 auto;
   object-fit: cover;
 }
+.md-editor #contenido {
+  min-height: 60vh;
+}
 @keyframes mostrarizquierda {
   0% {
     transform: translateX(600px);
@@ -11048,6 +11051,11 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+@media screen and (max-width: 700px) {
+  .md-editor #contenido {
+    min-height: 40vh;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map*/
