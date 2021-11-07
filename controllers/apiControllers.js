@@ -123,7 +123,7 @@ const controller = {
             if(err) res.status(500).send({msg: 'No se ha podido borrar el comentario'})
 
             const idDePost = resp.postId;
-            await PostModel.findByIdAndUpdate(idDePost, {$inc: { numresp: -1 }},{ timestamps: false })
+            await PostModel.findByIdAndUpdate(idDePost, {$inc: { numresp: -1 }},{ timestamps: false , new: true})
             res.status(200).send({resp});
         });
 
